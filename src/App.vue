@@ -1,15 +1,26 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <!-- <img alt="Vue logo" src="./assets/logo.png">
+  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+  <div>111</div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+// import HelloWorld from './components/HelloWorld.vue'
+import { query } from '@/utils/api'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data () {
+    return {}
+  },
+  mounted () {
+    console.log(22)
+    // let params = { userName: 'admin', password: '123456'}
+    query().then(res => {
+      console.log(res, '响应结果')
+    }).catch(err=>{
+      console.log('err',err)
+    })
   }
 }
 </script>
