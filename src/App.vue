@@ -1,12 +1,12 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <div>111</div>
+  <router-link to="/">Go to Home</router-link>
+  <router-link to="/about">Go to about</router-link>
+  <div class="view">33<router-view></router-view></div>
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-import { query } from '@/utils/api'
+
+// import { query } from '@/utils/api'
 
 export default {
   name: 'App',
@@ -14,14 +14,24 @@ export default {
     return {}
   },
   mounted () {
-    console.log(22)
-    // let params = { userName: 'admin', password: '123456'}
-    query().then(res => {
-      console.log(res, '响应结果')
-    }).catch(err=>{
-      console.log('err',err)
-    })
+    // console.log('router',this.$router)
+    // console.log('route',this.$route)
+    // console.log(22)
+    // // let params = { userName: 'admin', password: '123456'}
+    // query().then(res => {
+    //   console.log(res, '响应结果')
+    // }).catch(err=>{
+    //   console.log('err',err)
+    // })
+  },
+  watch: {
+    $route(to,from){
+      console.log('from',from.path)
+      console.log('to',to.path)
+      console.log(this.$route.params)
+    }
   }
+
 }
 </script>
 
